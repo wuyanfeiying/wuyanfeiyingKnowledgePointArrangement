@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>排序算法整理</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    // 冒泡排序
+    // 思路：当前项和后一项进行比较 如果当前项大于后一项则 交换位置
+    var arr = [1, 33, 4, 55, 867, -1, 0, 8, 2];
+
+    function bubbleSort(arr) {
+        for (var i = 0; i < arr.length - 1; i++) {
+            for (var j = 0; j < arr.length - 1 - i; j++) {
+                var num = arr[j];
+                if (arr[j] > arr[j + 1]) {
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = num;
+                }
+            }
+
+        }
+        return arr;
+    }
+
+    bubbleSort(arr);
+    console.log(arr);
+
+    // 插入排序
+    // 思路： 插入排序是从后往前比较, 从第二项开始一次往前比较 如果当前项大于前一项 则停止比较并将当前项插入到前一项的后面
+    var arr2 = [1, 33, 4, 55, 867, -1, 0, 8, 2];
+
+    function insertC(arr2) {
+        for (let i = 0; i < arr2.length; i++) {
+            // p 指向 下一个要比较的索引
+            let p = i - 1;
+            // 当前要插入项
+            let curr = arr2[i];
+
+            // 只要前一项大于当前项就一直循环下去
+            while (p >= 0 && arr2[p] > curr) {
+                // 前一项大于当前项 就将前一项往后挪一位
+                arr2[p + 1] = arr2[p];
+                // 每比较完一次 p存储的索引值 就往前挪一位 进行下次比较
+                p--;
+            }
+
+            // 执行到这一行 说明 当前项cur 大于索引p这一项
+            // 则将当前项插入到后面
+            arr2[p + 1] = curr;
+        }
+    }
+    insertC(arr2)
+    console.log(arr2)
+</script>
