@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- li节点的onclick事件都能正确的弹出当前被点击的li索引 -->
+    <ul id="testUL">
+        　　<li> index = 0</li>
+        　　<li> index = 1</li>
+        　　<li> index = 2</li>
+        　　<li> index = 3</li>
+    </ul>
+</body>
+
+</html>
+
+
+<script type="text/javascript">
+    var nodes = document.getElementsByTagName("li");
+    for (i = 0; i < nodes.length; i += 1) {
+        nodes[i].onclick = (function (i) {
+            return function () {
+                console.log(i);
+            } //不用闭包的话，值每次都是4
+        })(i);
+    }
+</script>
